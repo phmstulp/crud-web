@@ -4,6 +4,9 @@ import TextField from '@material-ui/core/TextField';
 import SaveIcon from '@material-ui/icons/Save';
 import { makeStyles } from '@material-ui/core/styles';
 import Api from '../Api';
+import { useEffect } from 'react';
+
+var edit = false;
 
 function Produto() {
     const [cdProduto, setCdProduto] = React.useState("");
@@ -11,6 +14,7 @@ function Produto() {
     const [cdMarca, setCdMarca] = React.useState("");
     const [dsObs, setDsObs] = React.useState("");
     const [nrValor, setNrValor] = React.useState("");
+    const [data, setData] = React.useState([]);
 
     const useStyles = makeStyles((theme) => ({
         button: {
@@ -20,18 +24,48 @@ function Produto() {
     const classes = useStyles();
 
     async function Save(event) {
-        const next = await Api.get('produto/NextId');
-        var id = next.data;
-        const produto = {
-            "cdProduto": id,
-            "dsProduto": dsProduto,
-            "cdMarca": cdMarca,
-            "dsObs": dsObs,
-            "nrValor": nrValor
-        };
-
-        const respPost = await Api.post('produto', produto);
+        if (edit) {
+            const produto = {
+                "cdProduto": id,
+                "dsProduto": dsProduto,
+                "cdMarca": cdMarca,
+                "dsObs": dsObs,
+                "nrValor": nrValor
+            };
+            const respPost = await Api.put(`produto/${id}`, produto);
+            window.location.href = "http://localhost:3000/produto-list";
+        } else {
+            const next = await Api.get('produto/NextId');
+            var id = next.data;
+            const produto = {
+                "cdProduto": id,
+                "dsProduto": dsProduto,
+                "cdMarca": cdMarca,
+                "dsObs": dsObs,
+                "nrValor": nrValor
+            };
+            const respPost = await Api.post('produto', produto);
+            window.location.href = "http://localhost:3000/produto-list";
+        }
     }
+
+    useEffect(() => {
+        //const id = this.props.match.params.id;
+        //const response = await Api.get('produto/' + 1);
+        const id = 1;
+        const GetData = async () => {
+            const response = await Api.get(`produto/${id}`);
+            setData(response.data);
+        };
+        GetData();
+        console.log(data);
+        setCdProduto(data.cdProduto);
+        setDsProduto(data.dsProduto);
+        setCdMarca(data.cdMarca);
+        setDsObs(data.dsObs);
+        setNrValor(data.nrValor);
+    }, []);
+
 
     return (
         <div>

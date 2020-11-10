@@ -38,9 +38,8 @@ async function Delete (event, id) {
     window.location.href = "http://localhost:3000/produto-list";
 }
 
-const Edit = (event) => {
-    console.log('Editou');
-    event.preventDefault();
+async function Edit (event, id) {
+    window.location.href = 'http://localhost:3000/produto/' + id;
 }
 
 function ProdutoList() {
@@ -90,7 +89,7 @@ function ProdutoList() {
                                 <TableRow >
                                     <TableCell align="center">{row.acoes}
                                       <DeleteIcon onClick={(e) => Delete(e, row.cdProduto)}/>
-                                      <EditIcon onClick={Edit}/>
+                                      <EditIcon onClick={(e) => Edit(e, row.cdProduto)}/>
                                     </TableCell>
                                     <TableCell align="left">{row.cdProduto}</TableCell>
                                     <TableCell align="left">{row.dsProduto}</TableCell>
