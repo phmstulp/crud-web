@@ -39,7 +39,7 @@ async function Delete (event, id) {
 }
 
 async function Edit (event, id) {
-    window.location.href = 'http://localhost:3000/produto/' + id;
+    window.location.href = `http://localhost:3000/produto/${id}`;
 }
 
 function ProdutoList() {

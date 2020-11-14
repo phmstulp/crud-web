@@ -15,6 +15,7 @@ namespace ApiProduct.Models
         {
         }
 
+        public virtual DbSet<Imagemproduto> Imagemproduto { get; set; }
         public virtual DbSet<Marca> Marca { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
 
@@ -23,12 +24,34 @@ namespace ApiProduct.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseNpgsql("Server=localhost;Database=produtodb;Port=5432;User Id=postgres;Password=admin;");
+                optionsBuilder.UseNpgsql("Host=localhost;Database=produtodb;Port=5432;Username=postgres;Password=postgres");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Imagemproduto>(entity =>
+            {
+                entity.HasKey(e => e.CdImagem);
+
+                entity.ToTable("imagemproduto");
+
+                entity.Property(e => e.CdImagem)
+                    .HasColumnName("cd_imagem")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.CdProduto).HasColumnName("cd_produto");
+
+                entity.Property(e => e.DsLink)
+                    .HasColumnName("ds_link")
+                    .HasMaxLength(500);
+
+                entity.HasOne(d => d.CdProdutoNavigation)
+                    .WithMany(p => p.Imagemproduto)
+                    .HasForeignKey(d => d.CdProduto)
+                    .HasConstraintName("fk_imagemproduto_produto");
+            });
+
             modelBuilder.Entity<Marca>(entity =>
             {
                 entity.HasKey(e => e.CdMarca);

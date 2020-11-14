@@ -50,6 +50,7 @@ function App() {
         <Switch>
           <Route path="/produto-list" component={ ProdutoList } />
           <Route path="/produto" component={ Produto } />
+          <Route path="/produto/:id" component={ Produto } />
         </Switch>
       </div>
     </Router>

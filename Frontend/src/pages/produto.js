@@ -5,6 +5,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import { makeStyles } from '@material-ui/core/styles';
 import Api from '../Api';
 import { useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 
 var edit = false;
 
@@ -14,7 +15,6 @@ function Produto() {
     const [cdMarca, setCdMarca] = React.useState("");
     const [dsObs, setDsObs] = React.useState("");
     const [nrValor, setNrValor] = React.useState("");
-    const [data, setData] = React.useState([]);
 
     const useStyles = makeStyles((theme) => ({
         button: {
@@ -26,13 +26,13 @@ function Produto() {
     async function Save(event) {
         if (edit) {
             const produto = {
-                "cdProduto": id,
+                "cdProduto": cdProduto,
                 "dsProduto": dsProduto,
                 "cdMarca": cdMarca,
                 "dsObs": dsObs,
                 "nrValor": nrValor
             };
-            const respPost = await Api.put(`produto/${id}`, produto);
+            const respPost = await Api.put(`produto/${cdProduto}`, produto);
             window.location.href = "http://localhost:3000/produto-list";
         } else {
             const next = await Api.get('produto/NextId');
@@ -50,22 +50,20 @@ function Produto() {
     }
 
     useEffect(() => {
-        //const id = this.props.match.params.id;
-        //const response = await Api.get('produto/' + 1);
+        console.log();
+        //const id = this.props.match.params;
         const id = 1;
         const GetData = async () => {
             const response = await Api.get(`produto/${id}`);
-            setData(response.data);
+            console.log(response.data);
+            setCdProduto(response.data.cdProduto);
+            setDsProduto(response.data.dsProduto);
+            setCdMarca(response.data.cdMarca);
+            setDsObs(response.data.dsObs);
+            setNrValor(response.data.nrValor);
         };
         GetData();
-        console.log(data);
-        setCdProduto(data.cdProduto);
-        setDsProduto(data.dsProduto);
-        setCdMarca(data.cdMarca);
-        setDsObs(data.dsObs);
-        setNrValor(data.nrValor);
     }, []);
-
 
     return (
         <div>
@@ -102,4 +100,4 @@ function Produto() {
     );
 }
 
-export default Produto;
+export default withRouter(Produto);

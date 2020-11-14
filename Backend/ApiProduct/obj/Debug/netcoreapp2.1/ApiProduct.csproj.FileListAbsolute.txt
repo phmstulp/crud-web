@@ -38,7 +38,6 @@ C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backen
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\bin\Debug\netcoreapp2.1\ApiProduct.runtimeconfig.dev.json
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\bin\Debug\netcoreapp2.1\ApiProduct.dll
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\bin\Debug\netcoreapp2.1\ApiProduct.pdb
-C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\obj\Debug\netcoreapp2.1\ApiProduct.csprojAssemblyReference.cache
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\obj\Debug\netcoreapp2.1\ApiProduct.RazorAssemblyInfo.cache
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\obj\Debug\netcoreapp2.1\ApiProduct.RazorAssemblyInfo.cs
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\obj\Debug\netcoreapp2.1\ApiProduct.AssemblyInfoInputs.cache
@@ -47,3 +46,4 @@ C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backen
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\obj\Debug\netcoreapp2.1\ApiProduct.dll
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\obj\Debug\netcoreapp2.1\ApiProduct.pdb
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\obj\Debug\netcoreapp2.1\ApiProduct.genruntimeconfig.cache
+C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProduct\obj\Debug\netcoreapp2.1\ApiProduct.csprojAssemblyReference.cache
