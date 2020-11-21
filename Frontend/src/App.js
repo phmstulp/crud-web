@@ -49,8 +49,9 @@ function App() {
         </Drawer>
         <Switch>
           <Route path="/produto-list" component={ ProdutoList } />
-          <Route path="/produto" component={ Produto } />
-          <Route path="/produto/:id" component={ Produto } />
+          <Route path="/produto" component={ Produto }>
+            <Route path="/produto/:id" component={ Produto } />
+          </Route>  
         </Switch>
       </div>
     </Router>

@@ -5,7 +5,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import { makeStyles } from '@material-ui/core/styles';
 import Api from '../Api';
 import { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useParams } from 'react-router-dom';
 
 var edit = false;
 
@@ -15,6 +15,8 @@ function Produto() {
     const [cdMarca, setCdMarca] = React.useState("");
     const [dsObs, setDsObs] = React.useState("");
     const [nrValor, setNrValor] = React.useState("");
+    const [dsUrl, setDsUrl] = React.useState("");
+    let params = useParams();
 
     const useStyles = makeStyles((theme) => ({
         button: {
@@ -32,11 +34,12 @@ function Produto() {
                 "dsObs": dsObs,
                 "nrValor": nrValor
             };
+            
             const respPost = await Api.put(`produto/${cdProduto}`, produto);
             window.location.href = "http://localhost:3000/produto-list";
         } else {
-            const next = await Api.get('produto/NextId');
-            var id = next.data;
+            const nextProduto = await Api.get('produto/NextId');
+            var id = nextProduto.data;
             const produto = {
                 "cdProduto": id,
                 "dsProduto": dsProduto,
@@ -44,15 +47,24 @@ function Produto() {
                 "dsObs": dsObs,
                 "nrValor": nrValor
             };
-            const respPost = await Api.post('produto', produto);
+            const respPostProduto = await Api.post('produto', produto);
+
+            const nextImagem = await Api.get('imagemproduto/NextId');
+            var idImagem = nextImagem.data;
+            const imagem = {
+                "cdImagem": idImagem,
+                "dsLink": dsUrl,
+                "cdProduto": id
+            };
+            const respPostImagem = await Api.post('imagemproduto', imagem);
+
             window.location.href = "http://localhost:3000/produto-list";
         }
     }
 
     useEffect(() => {
-        console.log();
-        //const id = this.props.match.params;
-        const id = 1;
+        const id = params.id;
+        console.log(id);
         const GetData = async () => {
             const response = await Api.get(`produto/${id}`);
             console.log(response.data);
@@ -83,6 +95,9 @@ function Produto() {
                 </div>
                 <div>
                     <TextField id="nrValor" label="Valor" value={nrValor} onChange={e => setNrValor(e.target.value)} required fullWidth />
+                </div>
+                <div>
+                    <TextField id="dsUrl" label="Url" value={dsUrl} onChange={e => setDsUrl(e.target.value)} required fullWidth />
                 </div>
             </div>
             <div>
