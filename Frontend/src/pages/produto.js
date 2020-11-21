@@ -5,9 +5,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import { makeStyles } from '@material-ui/core/styles';
 import Api from '../Api';
 import { useEffect } from 'react';
-import { withRouter, useParams } from 'react-router-dom';
-
-var edit = false;
+import { withRouter } from 'react-router-dom';
 
 function Produto() {
     const [cdProduto, setCdProduto] = React.useState("");
@@ -15,8 +13,6 @@ function Produto() {
     const [cdMarca, setCdMarca] = React.useState("");
     const [dsObs, setDsObs] = React.useState("");
     const [nrValor, setNrValor] = React.useState("");
-    const [dsUrl, setDsUrl] = React.useState("");
-    let params = useParams();
 
     const useStyles = makeStyles((theme) => ({
         button: {
@@ -26,55 +22,26 @@ function Produto() {
     const classes = useStyles();
 
     async function Save(event) {
-        if (edit) {
-            const produto = {
-                "cdProduto": cdProduto,
-                "dsProduto": dsProduto,
-                "cdMarca": cdMarca,
-                "dsObs": dsObs,
-                "nrValor": nrValor
-            };
-            
-            const respPost = await Api.put(`produto/${cdProduto}`, produto);
-            window.location.href = "http://localhost:3000/produto-list";
-        } else {
-            const nextProduto = await Api.get('produto/NextId');
-            var id = nextProduto.data;
-            const produto = {
-                "cdProduto": id,
-                "dsProduto": dsProduto,
-                "cdMarca": cdMarca,
-                "dsObs": dsObs,
-                "nrValor": nrValor
-            };
-            const respPostProduto = await Api.post('produto', produto);
+        const produto = {
+            "cdProduto": cdProduto,
+            "dsProduto": dsProduto,
+            "cdMarca": cdMarca,
+            "dsObs": dsObs,
+            "nrValor": nrValor
+        };
 
-            const nextImagem = await Api.get('imagemproduto/NextId');
-            var idImagem = nextImagem.data;
-            const imagem = {
-                "cdImagem": idImagem,
-                "dsLink": dsUrl,
-                "cdProduto": id
-            };
-            const respPostImagem = await Api.post('imagemproduto', imagem);
+        const respPost = await Api.put(`produto/${cdProduto}`, produto);
+        window.location.href = "http://localhost:3000/produto-list";
+    }
 
-            window.location.href = "http://localhost:3000/produto-list";
-        }
+    async function recuperaIdProduto() {
+        const nextProduto = await Api.get('produto/NextId');
+        var id = nextProduto.data;
+        setCdProduto(id);
     }
 
     useEffect(() => {
-        const id = params.id;
-        console.log(id);
-        const GetData = async () => {
-            const response = await Api.get(`produto/${id}`);
-            console.log(response.data);
-            setCdProduto(response.data.cdProduto);
-            setDsProduto(response.data.dsProduto);
-            setCdMarca(response.data.cdMarca);
-            setDsObs(response.data.dsObs);
-            setNrValor(response.data.nrValor);
-        };
-        GetData();
+        recuperaIdProduto();
     }, []);
 
     return (
@@ -95,9 +62,6 @@ function Produto() {
                 </div>
                 <div>
                     <TextField id="nrValor" label="Valor" value={nrValor} onChange={e => setNrValor(e.target.value)} required fullWidth />
-                </div>
-                <div>
-                    <TextField id="dsUrl" label="Url" value={dsUrl} onChange={e => setDsUrl(e.target.value)} required fullWidth />
                 </div>
             </div>
             <div>

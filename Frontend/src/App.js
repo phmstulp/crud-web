@@ -7,6 +7,7 @@ import Produto from './pages/produto';
 import ProdutoList from './pages/produto-list';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import ProdutoEdit from './pages/produto-edit';
 
 const useStyles = makeStyles((theme) => ({
   drawerPaper: { width: 'inherit' },
@@ -49,9 +50,8 @@ function App() {
         </Drawer>
         <Switch>
           <Route path="/produto-list" component={ ProdutoList } />
-          <Route path="/produto" component={ Produto }>
-            <Route path="/produto/:id" component={ Produto } />
-          </Route>  
+          <Route path="/produto" component={ Produto } />
+          <Route path="/produto-edit/:id" component={ ProdutoEdit } />
         </Switch>
       </div>
     </Router>

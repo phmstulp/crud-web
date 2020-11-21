@@ -29,21 +29,21 @@ namespace ApiProduct.Controllers
 
         // GET: api/ImagemProduto/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetImagemproduto([FromRoute] int id)
+        public IEnumerable<Imagemproduto> GetImagemproduto([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
+            List<Imagemproduto> resultadoList = new List<Imagemproduto>();
+
+            IEnumerable<Imagemproduto> imagens = _context.Imagemproduto;
+
+            foreach (Imagemproduto i in imagens)
             {
-                return BadRequest(ModelState);
+                if (i.CdProduto == id)
+                {
+                    resultadoList.Add(i);
+                }
             }
 
-            var imagemproduto = await _context.Imagemproduto.FindAsync(id);
-
-            if (imagemproduto == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(imagemproduto);
+            return resultadoList;
         }
 
         [HttpGet("NextId")]
