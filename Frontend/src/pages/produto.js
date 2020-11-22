@@ -30,7 +30,7 @@ function Produto() {
             "nrValor": nrValor
         };
 
-        const respPost = await Api.put(`produto/${cdProduto}`, produto);
+        const respPost = await Api.post("/produto", produto);
         window.location.href = "http://localhost:3000/produto-list";
     }
 
