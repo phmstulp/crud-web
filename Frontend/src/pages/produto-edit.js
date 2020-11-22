@@ -115,7 +115,11 @@ function ProdutoEdit() {
                     Salvar
                 </Button>
             </div>
-            
+            <div>
+                {imagens.map((imagem, index) => (
+                    <p key={index}>Link Imagem: {imagem.dsLink}</p>
+                ))}
+            </div>
         </div>
     );
 }

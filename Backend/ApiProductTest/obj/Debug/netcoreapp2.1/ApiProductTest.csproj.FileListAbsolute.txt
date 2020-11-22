@@ -16,6 +16,9 @@ C:\Users\user\source\repos\ApiProduct\ApiProductTest\obj\Debug\netcoreapp2.1\Api
 C:\Users\user\source\repos\ApiProduct\ApiProductTest\bin\Debug\netcoreapp2.1\Business.dll
 C:\Users\user\source\repos\ApiProduct\ApiProductTest\bin\Debug\netcoreapp2.1\Business.pdb
 C:\Users\user\source\repos\ApiProduct\ApiProductTest\obj\Debug\netcoreapp2.1\ApiProductTest.csproj.CopyComplete
+C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
@@ -25,8 +28,11 @@ C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backen
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\ApiProductTest.runtimeconfig.dev.json
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\ApiProductTest.dll
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\ApiProductTest.pdb
+C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\ApiProduct.dll
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\Business.dll
+C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\ApiProduct.pdb
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\Business.pdb
+C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\bin\Debug\netcoreapp2.1\Business.dll.config
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\obj\Debug\netcoreapp2.1\ApiProductTest.csprojAssemblyReference.cache
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\obj\Debug\netcoreapp2.1\ApiProductTest.AssemblyInfoInputs.cache
 C:\Users\Pedro Henrique\Documents\Visual Studio 2019\Projects\ApiProduct2\Backend\ApiProductTest\obj\Debug\netcoreapp2.1\ApiProductTest.AssemblyInfo.cs
